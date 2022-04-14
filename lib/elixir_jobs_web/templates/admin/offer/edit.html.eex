@@ -1,0 +1,5 @@
+<%= render(ElixirJobsWeb.OfferView, "_form.html",
+  changeset: @changeset,
+  action: admin_offer_path(@conn, :update, @offer.slug),
+  conn: @conn,
+  css_class: "offer-new") %>

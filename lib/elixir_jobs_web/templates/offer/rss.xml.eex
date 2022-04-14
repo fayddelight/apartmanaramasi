@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title><%= gettext("Elixir Jobs") %></title>
+    <description><%= gettext "Find your next Elixir job." %></description>
+    <link><%= offer_url(@conn, :index) %></link>
+    <%= for offer <- @offers do %>
+      <item>
+        <title><![CDATA[<%= xml_strip_tags(offer.title) %>]]></title>
+        <description><![CDATA[
+          <font color="#aaa">
+            <font color="#aaa">
+              <%= gettext "Job place:" %> <%= HumanizeHelper.human_get_place(offer.job_place, gettext("Unknown")) %>
+            </font><br />
+            <font color="#aaa">
+              <%= gettext "Job type:" %> <%= HumanizeHelper.human_get_type(offer.job_type, gettext("Unknown")) %>
+            </font><br />
+            <font color="#aaa">
+              <%= gettext "Job location:" %> <%= xml_strip_tags(offer.location) %>
+            </font>
+          </font>
+          <%= offer.summary %>
+        ]]></description>
+        <pubDate><%= xml_readable_date(offer.inserted_at) %></pubDate>
+        <link><![CDATA[<%= offer_url(@conn, :show, offer.slug) %>]]></link>
+        <guid><![CDATA[<%= offer_url(@conn, :show, offer.slug) %>]]></guid>
+      </item>
+    <% end %>
+  </channel>
+</rss>

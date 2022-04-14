@@ -1,0 +1,20 @@
+<section class="offers-show">
+  <div class="offer">
+    <%= render("_offer_header.html", conn: @conn, offer: @offer) %>
+    <hr />
+
+    <div class="body"><%= text_to_html(@offer.summary) %></div>
+
+    <nav class="level offer-actions">
+      <p class="level-item has-text-centered">
+        <%= link(gettext("Go to the offer!"), to: offer_url(@offer), class: "button is-info is-medium", target: "_blank") %>
+      </p>
+    </nav>
+
+    <%= render("show/_share.html", conn: @conn, offer: @offer) %>
+  </div>
+
+  <%= if user_logged_in?(@conn) do %>
+    <%= render("show/_administration.html", conn: @conn, offer: @offer) %>
+  <% end %>
+</section>
