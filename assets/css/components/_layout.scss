@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 960px !important;
+}
+
+.section.app {
+  flex: 1;
+}
