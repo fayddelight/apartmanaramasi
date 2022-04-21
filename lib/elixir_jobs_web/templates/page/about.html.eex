@@ -14,7 +14,7 @@
 
   <h2><%= raw gettext("Get in touch") %></h2>
 
-  <p><%= raw gettext("If you need to contact us regarding a job offer, for commercial enquiries or just to say something, you can send us an email to <a href=\"mailto:hi@elixirjobs.net\">hi@elixirjobs.net</a>") %></p>
+  <p><%= raw gettext("If you need to contact us regarding a job offer, for commercial enquiries or just to say something, you can send us an email to <a href=\"mailto:hi@apartmanaramasi.io\">hi@apartmanaramasi.io</a>") %></p>
 
   <h2><%= raw gettext("Sponsors") %></h2>
 
