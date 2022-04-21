@@ -17,7 +17,7 @@
         </p>
       </div>
       <div class="column has-text-centered has-text-right-desktop">
-        <p><%= link(gettext("Recent job postings"), to: offer_path(@conn, :index)) %></p>
+        <p><%= link(gettext("Recent flat postings"), to: offer_path(@conn, :index)) %></p>
         <p>
           <%= link(gettext("On site jobs"), to: offer_path(@conn, :index_filtered, "onsite")) %>
           |
