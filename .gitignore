@@ -10,3 +10,4 @@ erl_crash.dump
 assets/node_modules/
 config/dev.secret.exs
 config/test.secret.exs
+/_build/dev/lib/elixir_jobs
