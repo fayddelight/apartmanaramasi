@@ -53,7 +53,7 @@ config :elixir_jobs, ElixirJobsWeb.Mailer,
 
 config :elixir_jobs, :default_app_email, "no-reply@elixirjobs.net"
 config :elixir_jobs, :analytics_id, "UA-106824960-1"
-config :elixir_jobs, :telegram_channel, "elixir_jobs"
+config :elixir_jobs, :telegram_channel, "apartmanaramasi"
 
 # AppSignal
 config :appsignal, :config, active: true
