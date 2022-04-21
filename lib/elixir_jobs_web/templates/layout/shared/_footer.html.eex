@@ -4,16 +4,16 @@
       <div class="column has-text-centered has-text-left-desktop">
         <p>
           <strong>
-            <%= raw gettext("ElixirJobs.net &copy %{year}", year: DateTime.utc_now.year) %>
+            <%= raw gettext("apartmanaramasi.io &copy %{year}", year: DateTime.utc_now.year) %>
           </strong>
         </p>
         <p>
-          <%= link(gettext("Post a job offer"), to: offer_path(@conn, :new)) %>
+          <%= link(gettext("Post a flat offer"), to: offer_path(@conn, :new)) %>
           |
           <%= link(gettext("About this site"), to: page_path(@conn, :about)) %>
         </p>
         <p>
-          <a href="mailto:hi@elixirjobs.net">Contact us</a>
+          <a href="mailto:hi@apartmanaramasi.io">Contact us</a>
         </p>
       </div>
       <div class="column has-text-centered has-text-right-desktop">
