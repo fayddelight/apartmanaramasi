@@ -8,16 +8,16 @@
           </strong>
         </p>
         <p>
-          <%= link(gettext("Post a job offer"), to: offer_path(@conn, :new)) %>
+          <%= link(gettext("Post a flat"), to: offer_path(@conn, :new)) %>
           |
           <%= link(gettext("About this site"), to: page_path(@conn, :about)) %>
         </p>
         <p>
-          <a href="mailto:hi@elixirjobs.net">Contact us</a>
+          <a href="mailto:hi@apartmanaramasi.net">Contact us</a>
         </p>
       </div>
       <div class="column has-text-centered has-text-right-desktop">
-        <p><%= link(gettext("Recent job postings"), to: offer_path(@conn, :index)) %></p>
+        <p><%= link(gettext("Recent flat postings"), to: offer_path(@conn, :index)) %></p>
         <p>
           <%= link(gettext("On site jobs"), to: offer_path(@conn, :index_filtered, "onsite")) %>
           |

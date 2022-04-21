@@ -2,12 +2,12 @@
   <div class="hero-body particles-container">
     <div class="container has-text-centered">
       <h1 class="title">
-        <%= gettext("Connect with jobs that matter") %>
+        <%= gettext("Find the flat you love") %>
       </h1>
       <h2 class="subtitle">
-        <%= gettext("With Elixir Jobs you can find your next Elixir job directly on your feed.") %>
+        <%= gettext("With apartaramasi you can find your next flat directly on your feed.") %>
       </h2>
-      <%= link(gettext("Post a job offer!"), to: offer_path(@conn, :new), class: "button new-offer-btn is-primary is-large") %>
+      <%= link(gettext("Post a flat!"), to: offer_path(@conn, :new), class: "button new-offer-btn is-primary is-large") %>
     </div>
     <div id="particles"></div>
   </div>
