@@ -7,8 +7,8 @@
 <%= gettext("Location") %>: <%= @offer.location %>
 <%= gettext("URL") %>: <%= @offer.url %>
 ----
-<%= gettext("Place") %>: <%= HumanizeHelper.human_get_place(@offer.job_place, gettext("Unknown")) %>
-<%= gettext("Type") %>: <%= HumanizeHelper.human_get_type(@offer.job_type, gettext("Unknown")) %>
+<%= gettext("Place") %>: <%= HumanizeHelper.human_get_place(@offer.district, gettext("Unknown")) %>
+<%= gettext("Type") %>: <%= HumanizeHelper.human_get_type(@offer.flat_type, gettext("Unknown")) %>
 ----
 <%= gettext("Contact E-mail") %>: <%= @offer.contact_email %>
 ----

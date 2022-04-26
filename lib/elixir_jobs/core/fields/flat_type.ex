@@ -1,4 +1,4 @@
-defmodule ElixirJobs.Core.Fields.JobType do
+defmodule ElixirJobs.Core.Fields.FlatType do
   @moduledoc """
   Field definition module to save in the database the type of an account
   """
@@ -7,9 +7,9 @@ defmodule ElixirJobs.Core.Fields.JobType do
 
   @values [
     :unknown,
-    :full_time,
-    :part_time,
-    :freelance
+    :shared_flat,
+    :flat,
+    :house
   ]
 
   def available_values, do: @values
@@ -18,15 +18,15 @@ defmodule ElixirJobs.Core.Fields.JobType do
   def type, do: :string
 
   @doc """
-  Cast an job type from the value input to verify that it's a registered value.
+  Cast an flat type from the value input to verify that it's a registered value.
 
   ## Examples
 
-    iex> cast(:full_time)
-    {:ok, :full_time}
+    iex> cast(:shared_flat)
+    {:ok, :shared_flat}
 
-    iex> cast("full_time")
-    {:ok, :full_time}
+    iex> cast("shared_flat")
+    {:ok, :shared_flat}
 
     iex> cast(:wadus)
     :error
@@ -38,12 +38,12 @@ defmodule ElixirJobs.Core.Fields.JobType do
   def cast(_value), do: :error
 
   @doc """
-  Load a job type value from the adapter to adapt it to the desired format in the app.
+  Load a flat type value from the adapter to adapt it to the desired format in the app.
 
   ## Examples
 
-    iex> load("full_time")
-    {:ok, :full_time}
+    iex> load("shared_flat")
+    {:ok, :shared_flat}
 
     iex> load("wadus")
     :error
@@ -69,8 +69,8 @@ defmodule ElixirJobs.Core.Fields.JobType do
 
   ## Examples
 
-    iex> dump(:full_time)
-    {:ok, "full_time"}
+    iex> dump(:shared_flat)
+    {:ok, "shared_flat"}
 
     iex> dump(:wadus)
     :error

@@ -14,8 +14,8 @@ defmodule ElixirJobs.Core.Managers.Offer do
 
   - page: number of the page. If not passed, no pagination is made.
   - published: returns only published or unpublished offers.
-  - job_place: filter offers by job place
-  - job_type: filter offers by job type
+  - district: filter offers by district
+  - flat_type: filter offers by flat type
   - search_text: filter offers by text
 
   ## Examples
@@ -47,8 +47,8 @@ defmodule ElixirJobs.Core.Managers.Offer do
   Accepts some options:
 
   - published: returns only published or unpublished offers.
-  - job_place: filter offers by job place
-  - job_type: filter offers by job type
+  - district: filter offers by district
+  - flat_type: filter offers by flat type
 
   ## Examples
 
@@ -74,8 +74,8 @@ defmodule ElixirJobs.Core.Managers.Offer do
   Accepts some options:
 
   - published: returns only published or unpublished offers.
-  - job_place: filter offers by job place
-  - job_type: filter offers by job type
+  - district: filter offers by district
+  - flat_type: filter offers by flat type
 
   ## Examples
 

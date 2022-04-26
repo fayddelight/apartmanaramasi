@@ -15,11 +15,11 @@ defmodule ElixirJobs.Core.Queries.Offer do
       {:published, false}, q ->
         unpublished(q)
 
-      {:job_place, value}, q ->
-        by_job_place(q, value)
+      {:district, value}, q ->
+        by_district(q, value)
 
-      {:job_type, value}, q ->
-        by_job_type(q, value)
+      {:flat_type, value}, q ->
+        by_flat_type(q, value)
 
       {:search_text, text}, q ->
         by_text(q, text)
@@ -37,20 +37,20 @@ defmodule ElixirJobs.Core.Queries.Offer do
     from o in query, where: o.slug == ^slug
   end
 
-  def by_job_type(query, values) when is_list(values) do
-    from o in query, where: o.job_type in ^values
+  def by_flat_type(query, values) when is_list(values) do
+    from o in query, where: o.flat_type in ^values
   end
 
-  def by_job_type(query, value) do
-    from o in query, where: o.job_type == ^value
+  def by_flat_type(query, value) do
+    from o in query, where: o.flat_type == ^value
   end
 
-  def by_job_place(query, values) when is_list(values) do
-    from o in query, where: o.job_place in ^values
+  def by_district(query, values) when is_list(values) do
+    from o in query, where: o.district in ^values
   end
 
-  def by_job_place(query, value) do
-    from o in query, where: o.job_place == ^value
+  def by_district(query, value) do
+    from o in query, where: o.district == ^value
   end
 
   def by_text(query, text) when is_binary(text) do

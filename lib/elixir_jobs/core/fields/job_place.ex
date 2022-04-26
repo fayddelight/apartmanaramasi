@@ -1,16 +1,16 @@
-defmodule ElixirJobs.Core.Fields.JobPlace do
+defmodule ElixirJobs.Core.Fields.District do
   @moduledoc """
   Field definition module to save in the database the type of an account
   """
 
   use Ecto.Type
 
-  @values [
-    :unknown,
-    :onsite,
-    :remote,
-    :both
-  ]
+  @values [:unknown, :adalar, :arnavutköy, :ataşehir, :avcılar, :bahçelievler, :bakırköy,
+ :bayrampaşa, :bağcılar, :başakşehir, :beykoz, :beyoğlu, :beşiktaş,
+ :büyükçekmece, :çatalca, :eminönü, :esenler, :esenyurt, :eyüp, :fatih,
+ :gaziosmanpaşa, :göztepe, :güngören, :kadıköy, :kartal, :kâğıthane,
+ :küçükçekmece, :maltepe, :pendik, :sarıyer, :silivri, :şişli, :tuzla,
+ :ümraniye, :üsküdar, :zeytinburnu]
 
   def available_values, do: @values
 
@@ -18,15 +18,15 @@ defmodule ElixirJobs.Core.Fields.JobPlace do
   def type, do: :string
 
   @doc """
-  Cast an job place from the value input to verify that it's a registered value.
+  Cast a district from the value input to verify that it's a registered value.
 
   ## Examples
 
-    iex> cast(:onsite)
-    {:ok, :onsite}
+    iex> cast(:adalar)
+    {:ok, :adalar}
 
-    iex> cast("onsite")
-    {:ok, :onsite}
+    iex> cast("adalar")
+    {:ok, :adalar}
 
     iex> cast(:wadus)
     :error
@@ -38,12 +38,12 @@ defmodule ElixirJobs.Core.Fields.JobPlace do
   def cast(_value), do: :error
 
   @doc """
-  Load a job place value from the adapter to adapt it to the desired format in the app.
+  Load a district value from the adapter to adapt it to the desired format in the app.
 
   ## Examples
 
-    iex> load("onsite")
-    {:ok, :onsite}
+    iex> load("adalar")
+    {:ok, :adalar}
 
     iex> load("wadus")
     :error
@@ -69,8 +69,8 @@ defmodule ElixirJobs.Core.Fields.JobPlace do
 
   ## Examples
 
-    iex> dump(:onsite)
-    {:ok, "onsite"}
+    iex> dump(:adalar)
+    {:ok, "adalar"}
 
     iex> dump(:wadus)
     :error

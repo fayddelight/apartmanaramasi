@@ -3,15 +3,15 @@ defmodule ElixirJobs.Repo.Migrations.AddEnumsToOffers do
 
   def up do
     alter table(:offers) do
-      add(:job_place, :string, null: false)
-      add(:job_type, :string, null: false)
+      add(:district, :string, null: false)
+      add(:flat_type, :string, null: false)
     end
   end
 
   def down do
     alter table(:offers) do
-      remove(:job_place)
-      remove(:job_type)
+      remove(:district)
+      remove(:flat_type)
     end
   end
 end

@@ -5,8 +5,8 @@ defmodule ElixirJobs.Core.Schemas.Offer do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias ElixirJobs.Core.Fields.JobPlace
-  alias ElixirJobs.Core.Fields.JobType
+  alias ElixirJobs.Core.Fields.District
+  alias ElixirJobs.Core.Fields.FlatType
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -19,8 +19,8 @@ defmodule ElixirJobs.Core.Schemas.Offer do
     field :slug, :string
     field :summary, :string
 
-    field :job_place, JobPlace
-    field :job_type, JobType
+    field :district, District
+    field :flat_type, FlatType
 
     field :contact_email, :string
 
@@ -35,8 +35,8 @@ defmodule ElixirJobs.Core.Schemas.Offer do
     :contact_email,
     :location,
     :url,
-    :job_place,
-    :job_type,
+    :district,
+    :flat_type,
     :summary
   ]
   @optional_attrs [:published_at, :slug]
@@ -57,8 +57,8 @@ defmodule ElixirJobs.Core.Schemas.Offer do
     |> validate_format(:url, @url_regexp)
     |> validate_length(:contact_email, min: 1, max: 255)
     |> validate_format(:contact_email, @email_regexp)
-    |> validate_inclusion(:job_place, JobPlace.available_values())
-    |> validate_inclusion(:job_type, JobType.available_values())
+    |> validate_inclusion(:district, District.available_values())
+    |> validate_inclusion(:flat_type, FlatType.available_values())
     |> unique_constraint(:slug)
     |> generate_slug()
   end

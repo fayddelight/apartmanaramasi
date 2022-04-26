@@ -3,8 +3,8 @@ defmodule ElixirJobs.Factories.Core.Offer do
 
   use ElixirJobs.Factories.Base, :offer
 
-  alias ElixirJobs.Core.Fields.JobPlace
-  alias ElixirJobs.Core.Fields.JobType
+  alias ElixirJobs.Core.Fields.District
+  alias ElixirJobs.Core.Fields.FlatType
   alias ElixirJobs.Core.Schemas.Offer
 
   def build_factory do
@@ -15,8 +15,8 @@ defmodule ElixirJobs.Factories.Core.Offer do
       url: Faker.Internet.url(),
       contact_email: Faker.Internet.email(),
       summary: Faker.Lorem.sentence(8..10),
-      job_place: Enum.random(JobPlace.available_values()),
-      job_type: Enum.random(JobType.available_values())
+      district: Enum.random(District.available_values()),
+      flat_type: Enum.random(FlatType.available_values())
     }
   end
 

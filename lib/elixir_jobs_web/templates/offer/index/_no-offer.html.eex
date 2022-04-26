@@ -4,7 +4,7 @@
       <p>
         <i><%= gettext("Upss! There is nothing here") %></i>
       </p>
-      <a class="button is-primary is-medium" href="<%= offer_path(@conn, :new) %>"><%= gettext "Post a job offer!" %></a>
+      <a class="button is-primary is-medium" href="<%= offer_path(@conn, :new) %>"><%= gettext "Post a flat!" %></a>
     </div>
   </div>
 </article>

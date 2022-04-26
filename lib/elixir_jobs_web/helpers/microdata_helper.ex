@@ -52,11 +52,11 @@ defmodule ElixirJobsWeb.MicrodataHelper do
     publication_date = offer.published_at || offer.inserted_at
     publication_date_str = DateHelper.strftime(publication_date, "%Y-%m-%d")
 
-    employment_type =
-      case offer.job_type do
-        :full_time -> gettext("Full time")
-        :part_time -> gettext("Part time")
-        :freelance -> gettext("Freelance")
+    flat_type =
+      case offer.flat_type do
+        :shared_flat -> gettext("Shared flat")
+        :flat -> gettext("Flat")
+        :house -> gettext("House")
         _ -> gettext("Unknown")
       end
 
@@ -71,7 +71,7 @@ defmodule ElixirJobsWeb.MicrodataHelper do
       "title" => offer.title,
       "description" => job_description,
       "datePosted" => publication_date_str,
-      "employmentType" => employment_type,
+      "flatType" => flat_type,
       "url" => offer_url(conn, :show, offer.slug),
       "hiringOrganization" => %{
         "@type" => "Organization",
@@ -85,13 +85,14 @@ defmodule ElixirJobsWeb.MicrodataHelper do
       }
     }
 
-    case offer.job_place do
-      place when place in [:both, :remote] ->
-        Map.put(base, "jobLocationType", "TELECOMMUTE")
-
-      _ ->
-        base
-    end
+# ???
+#    case offer.district do
+#      place when place in [:beyoğlu, :kadıköy] ->
+#        Map.put(base, "flatLocationType", "TELECOMMUTE")
+#
+#      _ ->
+#        base
+#    end
   end
 
   defp organization_microdata(conn) do

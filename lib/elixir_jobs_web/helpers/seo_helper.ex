@@ -8,8 +8,8 @@ defmodule ElixirJobsWeb.SeoHelper do
 
   import Phoenix.Controller, only: [view_module: 1, view_template: 1]
 
-  @default_page_title "Find your next job the right way"
-  @default_page_description "Elixir Jobs helps developers to find their next Elixir job and companies to spread their offers. Use our search engine to find your next dream job."
+  @default_page_title "Find your next flat the right way"
+  @default_page_description "Apartmanaramasi helps students to find their next shared flat and future flatmates to spread their offers. Use our search engine to find your next flat."
 
   alias ElixirJobs.Core.Schemas.Offer
   alias ElixirJobsWeb.ErrorView
@@ -28,26 +28,26 @@ defmodule ElixirJobsWeb.SeoHelper do
 
   def page_description(_), do: gettext(@default_page_description)
 
-  defp get_page_title(OfferView, "new.html", _, _), do: gettext("Publish a job offer")
+  defp get_page_title(OfferView, "new.html", _, _), do: gettext("Publish a flat")
 
   defp get_page_title(OfferView, action, _, params)
        when action in [:index_filtered, :search] do
-    job_type =
+    flat_type =
       params
       |> Map.get("filters", %{})
-      |> Map.get("job_type", "")
+      |> Map.get("flat_type", "")
 
-    job_place =
+    district =
       params
       |> Map.get("filters", %{})
-      |> Map.get("job_place", "")
+      |> Map.get("district", "")
 
-    case {job_type, job_place} do
-      {"full_time", ""} -> gettext("Full time Elixir job offers")
-      {"part_time", ""} -> gettext("Part time Elixir job offers")
-      {"freelance", ""} -> gettext("Freelance Elixir job offers")
-      {"", "onsite"} -> gettext("On site Elixir job offers")
-      {"", "remote"} -> gettext("Remote Elixir job offers")
+    case {flat_type, district} do
+      {"shared_flat", ""} -> gettext("shared flat offers")
+      {"flat", ""} -> gettext("Flat offers")
+      {"house", ""} -> gettext("House offers")
+      {"", "beyoğlu"} -> gettext("Flat offers in Beyoğlu")
+      {"", "kadıköy"} -> gettext("Flat offers in Kadıköy")
       _ -> gettext(@default_page_title)
     end
   end
@@ -71,7 +71,7 @@ defmodule ElixirJobsWeb.SeoHelper do
   defp get_page_description(OfferView, "new.html", _),
     do:
       gettext(
-        "Post your job offer to reach more Elixir developers and find the right hire for your company!"
+        "Post your flat offer to reach potential prospects!"
       )
 
   defp get_page_description(OfferView, "show.html", %{:offer => %Offer{} = offer}) do
@@ -83,7 +83,7 @@ defmodule ElixirJobsWeb.SeoHelper do
   defp get_page_description(PageView, "about.html", _),
     do:
       gettext(
-        "Built on Elixir + Phoenix, Elixir Jobs is a open source project that aims to help Elixir developers to find their next dream job."
+        "Built on Elixir + Phoenix, apartmanaramasi is a project that aims to help people in Turkey to find their next dream flat."
       )
 
   defp get_page_description(_, _, _), do: gettext(@default_page_description)

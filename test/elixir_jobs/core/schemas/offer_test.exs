@@ -20,8 +20,8 @@ defmodule ElixirJobs.Core.Schemas.OfferTest do
       :contact_email,
       :location,
       :url,
-      :job_place,
-      :job_type,
+      :district,
+      :flat_type,
       :summary
     ]
 
@@ -184,22 +184,22 @@ defmodule ElixirJobs.Core.Schemas.OfferTest do
       assert Enum.any?(changeset.errors, &(elem(&1, 0) == :contact_email))
     end
 
-    test "job_place is validated" do
+    test "district is validated" do
       # Not an URL at all
-      attrs = params_for(:offer, job_place: "invent")
+      attrs = params_for(:offer, district: "invent")
       changeset = Offer.changeset(%Offer{}, attrs)
 
       refute changeset.valid?
-      assert Enum.any?(changeset.errors, &(elem(&1, 0) == :job_place))
+      assert Enum.any?(changeset.errors, &(elem(&1, 0) == :district))
     end
 
-    test "job_type is validated" do
+    test "flat_type is validated" do
       # Not an URL at all
-      attrs = params_for(:offer, job_type: "invent")
+      attrs = params_for(:offer, flat_type: "invent")
       changeset = Offer.changeset(%Offer{}, attrs)
 
       refute changeset.valid?
-      assert Enum.any?(changeset.errors, &(elem(&1, 0) == :job_type))
+      assert Enum.any?(changeset.errors, &(elem(&1, 0) == :flat_type))
     end
 
     test "slug should be unique" do

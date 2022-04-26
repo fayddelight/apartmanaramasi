@@ -19,16 +19,16 @@
       <div class="column has-text-centered has-text-right-desktop">
         <p><%= link(gettext("Recent flat postings"), to: offer_path(@conn, :index)) %></p>
         <p>
-          <%= link(gettext("On site jobs"), to: offer_path(@conn, :index_filtered, "onsite")) %>
+          <%= link(gettext("Flats in Kadıköy"), to: offer_path(@conn, :index_filtered, "kadıköy")) %>
           |
-          <%= link(gettext("Remote jobs"), to: offer_path(@conn, :index_filtered, "remote")) %>
+          <%= link(gettext("Flats in Beyoğlu"), to: offer_path(@conn, :index_filtered, "beyoğlu")) %>
         </p>
         <p>
-          <%= link(gettext("Full time jobs"), to: offer_path(@conn, :index_filtered, "full_time")) %>
+          <%= link(gettext("shared flats"), to: offer_path(@conn, :index_filtered, "shared_flat")) %>
           |
-          <%= link(gettext("Part time jobs"), to: offer_path(@conn, :index_filtered, "part_time")) %>
+          <%= link(gettext("flats"), to: offer_path(@conn, :index_filtered, "flat")) %>
           |
-          <%= link(gettext("Freelance jobs"), to: offer_path(@conn, :index_filtered, "freelance")) %>
+          <%= link(gettext("houses"), to: offer_path(@conn, :index_filtered, "house")) %>
         </p>
       </div>
     </div>

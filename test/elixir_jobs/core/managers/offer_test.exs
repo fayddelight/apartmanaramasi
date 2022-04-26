@@ -47,21 +47,21 @@ defmodule ElixirJobs.Core.Managers.OfferTest do
       assert offer_2 in result
     end
 
-    test "returns offers by job type" do
-      offer_1 = insert(:offer, job_type: :full_time)
-      offer_2 = insert(:offer, job_type: :part_time)
+    test "returns offers by flat type" do
+      offer_1 = insert(:offer, flat_type: :shared_flat)
+      offer_2 = insert(:offer, flat_type: :flat)
 
-      result = Manager.list_offers(job_type: :full_time)
+      result = Manager.list_offers(flat_type: :shared_flat)
 
       assert offer_1 in result
       refute offer_2 in result
     end
 
-    test "returns offers by job place" do
-      offer_1 = insert(:offer, job_place: :onsite)
-      offer_2 = insert(:offer, job_place: :remote)
+    test "returns offers by district" do
+      offer_1 = insert(:offer, district: :adalar)
+      offer_2 = insert(:offer, district: :arnavutköy)
 
-      result = Manager.list_offers(job_place: :onsite)
+      result = Manager.list_offers(district: :adalar)
 
       assert offer_1 in result
       refute offer_2 in result
@@ -143,25 +143,25 @@ defmodule ElixirJobs.Core.Managers.OfferTest do
       assert Manager.get_offer!(offer_2.id, published: false) == offer_2
     end
 
-    test "returns offer by ID and job type" do
-      offer_1 = insert(:offer, job_type: :full_time)
-      offer_2 = insert(:offer, job_type: :part_time)
+    test "returns offer by ID and flat type" do
+      offer_1 = insert(:offer, flat_type: :shared_flat)
+      offer_2 = insert(:offer, flat_type: :flat)
 
-      assert Manager.get_offer!(offer_1.id, job_type: :full_time) == offer_1
+      assert Manager.get_offer!(offer_1.id, flat_type: :shared_flat) == offer_1
 
       assert_raise Ecto.NoResultsError, fn ->
-        Manager.get_offer!(offer_2.id, job_type: :full_time)
+        Manager.get_offer!(offer_2.id, flat_type: :shared_flat)
       end
     end
 
-    test "returns offer by ID and job place" do
-      offer_1 = insert(:offer, job_place: :onsite)
-      offer_2 = insert(:offer, job_place: :remote)
+    test "returns offer by ID and district" do
+      offer_1 = insert(:offer, district: :adalar)
+      offer_2 = insert(:offer, district: :arnavutköy)
 
-      assert Manager.get_offer!(offer_1.id, job_place: :onsite) == offer_1
+      assert Manager.get_offer!(offer_1.id, district: :adalar) == offer_1
 
       assert_raise Ecto.NoResultsError, fn ->
-        Manager.get_offer!(offer_2.id, job_place: :onsite)
+        Manager.get_offer!(offer_2.id, district: :adalar)
       end
     end
   end
@@ -205,25 +205,25 @@ defmodule ElixirJobs.Core.Managers.OfferTest do
       assert Manager.get_offer_by_slug!(offer_2.slug, published: false) == offer_2
     end
 
-    test "returns offer by slug and job type" do
-      offer_1 = insert(:offer, job_type: :full_time)
-      offer_2 = insert(:offer, job_type: :part_time)
+    test "returns offer by slug and flat type" do
+      offer_1 = insert(:offer, flat_type: :shared_flat)
+      offer_2 = insert(:offer, flat_type: :flat)
 
-      assert Manager.get_offer_by_slug!(offer_1.slug, job_type: :full_time) == offer_1
+      assert Manager.get_offer_by_slug!(offer_1.slug, flat_type: :shared_flat) == offer_1
 
       assert_raise Ecto.NoResultsError, fn ->
-        Manager.get_offer_by_slug!(offer_2.slug, job_type: :full_time)
+        Manager.get_offer_by_slug!(offer_2.slug, flat_type: :shared_flat)
       end
     end
 
-    test "returns offer by slug and job place" do
-      offer_1 = insert(:offer, job_place: :onsite)
-      offer_2 = insert(:offer, job_place: :remote)
+    test "returns offer by slug and district" do
+      offer_1 = insert(:offer, district: :adalar)
+      offer_2 = insert(:offer, district: :arnavutköy)
 
-      assert Manager.get_offer_by_slug!(offer_1.slug, job_place: :onsite) == offer_1
+      assert Manager.get_offer_by_slug!(offer_1.slug, district: :adalar) == offer_1
 
       assert_raise Ecto.NoResultsError, fn ->
-        Manager.get_offer_by_slug!(offer_2.slug, job_place: :onsite)
+        Manager.get_offer_by_slug!(offer_2.slug, district: :adalar)
       end
     end
   end

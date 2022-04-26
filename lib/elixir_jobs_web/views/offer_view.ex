@@ -12,8 +12,8 @@ defmodule ElixirJobsWeb.OfferView do
     {"utm_campaign", "elixirjobs.net"}
   ]
 
-  def get_job_place_options(default) do
-    Enum.reduce(Core.get_job_places(), [], fn option, acc ->
+  def get_district_options(default) do
+    Enum.reduce(Core.get_districts(), [], fn option, acc ->
       select_option = [
         {HumanizeHelper.get_place_text(option, default), option}
       ]
@@ -22,8 +22,8 @@ defmodule ElixirJobsWeb.OfferView do
     end)
   end
 
-  def get_job_type_options(default) do
-    Enum.reduce(Core.get_job_types(), [], fn option, acc ->
+  def get_flat_type_options(default) do
+    Enum.reduce(Core.get_flat_types(), [], fn option, acc ->
       select_option = [
         {HumanizeHelper.get_type_text(option, default), option}
       ]

@@ -9,7 +9,7 @@
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
-  <%= for filter <- ["onsite", "remote", "full_time", "part_time", "freelance"] do %>
+  <%= for filter <- ["adalar", "arnavutköy", "shared_flat", "flat", "house"] do %>
   <url>
     <loc><%= offer_url(@conn, :index_filtered, filter) %></loc>
     <changefreq>daily</changefreq>

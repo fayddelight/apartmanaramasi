@@ -44,8 +44,8 @@ defmodule ElixirJobsWeb.Twitter do
     ExTwitter.update(status)
   end
 
-  defp get_text(%Offer{company: company, title: title, job_place: job_place}) do
-    "#{title} @ #{company} / #{HumanizeHelper.human_get_place(job_place, "Unknown Place")}"
+  defp get_text(%Offer{company: company, title: title, district: district}) do
+    "#{title} @ #{company} / #{HumanizeHelper.human_get_place(district, "Unknown Place")}"
   end
 
   defp get_tags do

@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= gettext("Elixir Jobs") %> - <%= SeoHelper.page_title(@conn) %></title>
     <meta name="description" content="<%= SeoHelper.page_description(@conn) %>">
-    <meta name="keywords" content="elixir,jobs,community,job,board,phoenix,positions,junior,senior,full time,part time,freelance,contract,publish">
+    <meta name="keywords" content="elixir,jobs,community,job,board,phoenix,positions,junior,senior,shared flat,flat,house,contract,publish">
     <meta property="og:url" content="<%= current_url(@conn) %>" />
     <meta property="og:title" content="<%= gettext("Elixir Jobs") %> - <%= SeoHelper.page_title(@conn) %>" />
     <meta property="og:description" content="<%= SeoHelper.page_description(@conn) %>" />

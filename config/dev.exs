@@ -56,7 +56,7 @@ config :elixir_jobs, ElixirJobsWeb.Guardian,
 
 config :elixir_jobs, ElixirJobsWeb.Mailer, adapter: Bamboo.LocalAdapter
 
-config :elixir_jobs, :default_app_email, "no-reply@elixirjobs.net"
+config :elixir_jobs, :default_app_email, "hi@apartmanaramasi.io"
 config :elixir_jobs, :analytics_id, ""
 config :elixir_jobs, :telegram_channel, "apartmanaramasi"
 

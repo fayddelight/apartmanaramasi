@@ -18,13 +18,13 @@ defmodule ElixirJobsWeb.Telegram do
   def send(_, _, ""), do: :ok
 
   def send(%Plug.Conn{} = conn, %Offer{} = offer, channel) do
-    job_type = HumanizeHelper.human_get_type(offer.job_type, Gettext.gettext("Unknown"))
-    job_place = HumanizeHelper.human_get_place(offer.job_place, Gettext.gettext("Unknown"))
+    flat_type = HumanizeHelper.human_get_type(offer.flat_type, Gettext.gettext("Unknown"))
+    district = HumanizeHelper.human_get_place(offer.district, Gettext.gettext("Unknown"))
 
     text = """
     *#{offer.title}*
     #{offer.company} (#{offer.location})
-    #{job_type} - #{job_place}
+    #{flat_type} - #{district}
     #{Routehelpers.offer_url(conn, :show, offer.slug)}
     """
 

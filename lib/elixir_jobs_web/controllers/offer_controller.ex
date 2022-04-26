@@ -4,8 +4,8 @@ defmodule ElixirJobsWeb.OfferController do
   alias ElixirJobs.Core
   alias ElixirJobs.Core.Schemas.Offer
 
-  @type_filters Enum.map(Core.get_job_types(), &to_string/1)
-  @place_filters Enum.map(Core.get_job_places(), &to_string/1)
+  @type_filters Enum.map(Core.get_flat_types(), &to_string/1)
+  @place_filters Enum.map(Core.get_districts(), &to_string/1)
 
   plug :scrub_params, "offer" when action in [:create, :preview]
 
@@ -23,7 +23,7 @@ defmodule ElixirJobsWeb.OfferController do
   end
 
   def index_filtered(conn, %{"filter" => filter}) when filter in @type_filters do
-    updated_params = %{"filters" => %{"job_type" => filter}}
+    updated_params = %{"filters" => %{"flat_type" => filter}}
 
     updated_conn =
       conn
@@ -34,7 +34,7 @@ defmodule ElixirJobsWeb.OfferController do
   end
 
   def index_filtered(conn, %{"filter" => filter}) when filter in @place_filters do
-    updated_params = %{"filters" => %{"job_place" => filter}}
+    updated_params = %{"filters" => %{"district" => filter}}
 
     updated_conn =
       conn
@@ -55,11 +55,11 @@ defmodule ElixirJobsWeb.OfferController do
       params
       |> Map.get("filters", %{})
       |> Enum.reduce([published: true], fn
-        {"job_place", value}, acc ->
-          Keyword.put(acc, :job_place, value)
+        {"district", value}, acc ->
+          Keyword.put(acc, :district, value)
 
-        {"job_type", value}, acc ->
-          Keyword.put(acc, :job_type, value)
+        {"flat_type", value}, acc ->
+          Keyword.put(acc, :flat_type, value)
 
         {"text", value}, acc when is_binary(value) ->
           Keyword.put(acc, :search_text, String.trim(value))
@@ -116,15 +116,15 @@ defmodule ElixirJobsWeb.OfferController do
   end
 
   def preview(conn, %{"offer" => offer_params}) do
-    job_place =
+    district =
       offer_params
-      |> Map.get("job_place")
+      |> Map.get("district")
       |> Kernel.||("unknown")
       |> String.to_existing_atom()
 
-    job_type =
+    flat_type =
       offer_params
-      |> Map.get("job_type")
+      |> Map.get("flat_type")
       |> Kernel.||("unknown")
       |> String.to_existing_atom()
 
@@ -135,8 +135,8 @@ defmodule ElixirJobsWeb.OfferController do
       location: Map.get(offer_params, "location") || gettext("Location"),
       url: Map.get(offer_params, "url") || "https://example.com",
       slug: "",
-      job_place: job_place,
-      job_type: job_type,
+      district: district,
+      flat_type: flat_type,
       published_at: DateTime.utc_now()
     }
 

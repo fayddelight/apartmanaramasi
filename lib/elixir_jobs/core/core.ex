@@ -15,6 +15,6 @@ defmodule ElixirJobs.Core do
   defdelegate delete_offer(offer), to: Managers.Offer
   defdelegate change_offer(offer), to: Managers.Offer
 
-  defdelegate get_job_places(), to: Fields.JobPlace, as: :available_values
-  defdelegate get_job_types(), to: Fields.JobType, as: :available_values
+  defdelegate get_districts(), to: Fields.District, as: :available_values
+  defdelegate get_flat_types(), to: Fields.FlatType, as: :available_values
 end

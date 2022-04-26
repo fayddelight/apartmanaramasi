@@ -1,39 +1,39 @@
-defmodule ElixirJobs.Core.Fields.JobTypeTest do
+defmodule ElixirJobs.Core.Fields.FlatTypeTest do
   use ElixirJobs.DataCase
 
-  alias ElixirJobs.Core.Fields.JobType
+  alias ElixirJobs.Core.Fields.FlatType
 
-  describe "JobType.cast/1" do
-    test "recognises valid job types" do
-      assert JobType.cast(:full_time) == {:ok, :full_time}
-      assert JobType.cast("full_time") == {:ok, :full_time}
+  describe "FlatType.cast/1" do
+    test "recognises valid flat types" do
+      assert FlatType.cast(:shared_flat) == {:ok, :shared_flat}
+      assert FlatType.cast("shared_flat") == {:ok, :shared_flat}
     end
 
-    test "recognises invalid job types" do
-      assert JobType.cast(:wadus) == :error
-      assert JobType.cast(0) == :error
-    end
-  end
-
-  describe "JobType.load/1" do
-    test "translates valid job types" do
-      assert JobType.load("full_time") == {:ok, :full_time}
-    end
-
-    test "does not translate invalid job types" do
-      assert JobType.load("wadus") == :error
-      assert JobType.load(0) == :error
+    test "recognises invalid flat types" do
+      assert FlatType.cast(:wadus) == :error
+      assert FlatType.cast(0) == :error
     end
   end
 
-  describe "JobType.dump/1" do
-    test "translates valid job types" do
-      assert JobType.dump(:full_time) == {:ok, "full_time"}
+  describe "FlatType.load/1" do
+    test "translates valid flat types" do
+      assert FlatType.load("shared_flat") == {:ok, :shared_flat}
     end
 
-    test "dump/1 does not translate invalid job types" do
-      assert JobType.dump(:wadus) == :error
-      assert JobType.dump(0) == :error
+    test "does not translate invalid flat types" do
+      assert FlatType.load("wadus") == :error
+      assert FlatType.load(0) == :error
+    end
+  end
+
+  describe "FlatType.dump/1" do
+    test "translates valid flat types" do
+      assert FlatType.dump(:shared_flat) == {:ok, "shared_flat"}
+    end
+
+    test "dump/1 does not translate invalid flat types" do
+      assert FlatType.dump(:wadus) == :error
+      assert FlatType.dump(0) == :error
     end
   end
 end
