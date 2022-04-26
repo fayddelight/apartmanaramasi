@@ -20,7 +20,7 @@
     </div>
     <div class="control">
       <span class="tags has-addons">
-        <span class="tag is-light is-rounded"><%= gettext("Workplace") %></span>
+        <span class="tag is-light is-rounded"><%= gettext("District") %></span>
         <span class="tag is-warning is-rounded"><%= HumanizeHelper.human_get_place(@offer.district, gettext("Unknown")) %></span>
       </span>
     </div>

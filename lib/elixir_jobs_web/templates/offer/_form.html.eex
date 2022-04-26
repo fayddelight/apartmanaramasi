@@ -30,7 +30,7 @@
           <%= text_input(f, :location,
                 id: "offer_location",
                 class: "input is-medium",
-                placeholder: gettext("Location of the job")) %>
+                placeholder: gettext("Location of the flat")) %>
           <%= error_tag(f, :location) %>
         </div>
       </div>
@@ -38,15 +38,15 @@
 
     <div class="field is-horizontal">
       <div class="field-label is-normal">
-        <label class="label"><%= gettext("URL of the offer") %></label>
+        <label class="label"><%= gettext("Contact E-mail") %></label>
       </div>
       <div class="field-body">
         <div class="field">
-          <%= text_input(f, :url,
-                id: "offer_url",
+          <%= text_input(f, :contact_email,
+                id: "offer_contact_email",
                 class: "input",
-                placeholder: gettext("URL of the job offer")) %>
-          <%= error_tag(f, :url) %>
+                placeholder: gettext("Your e-mail address")) %>
+          <%= error_tag(f, :contact_email) %>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@
                 class: "input",
                 placeholder: gettext("Your e-mail address")) %>
           <%= error_tag(f, :contact_email) %>
-          <p class="help"><%= raw gettext(" We will use this in case we need to contact you regarding this job posting. <b>It will not be public.</b>") %></p>
+          <p class="help"><%= raw gettext(" We will use this in case we need to contact you regarding this flat posting. <b>It will not be public.</b>") %></p>
         </div>
       </div>
     </div>
